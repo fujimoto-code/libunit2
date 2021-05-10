@@ -17,21 +17,6 @@ void	ft_lstclear(t_unit_test **lst)
 	}
 }
 
-void	ft_lstadd_back(t_unit_test **lst, t_unit_test *newobj)
-{
-	t_unit_test *last;
-
-	if (!lst || !newobj)
-		return ;
-	if (*lst)
-	{
-		last = ft_lstlast(*lst);
-		last->next = newobj;
-	}
-	else
-		*lst = newobj;
-}
-
 void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 {
 	t_unit_test	*newlst;
@@ -63,18 +48,17 @@ void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 
 void	print_status(int status)
 {
-	// TODO MASKをかける
-	if (status == SIGSEGV)
-		printf("> %s",  RED"[SEGV]"RESET);
-	else if (status == SIGBUS)
-		printf("> %s",  RED"[BUSE]"RESET);
-	else if (status == -1)
-		printf("> %s",  RED"[KO]  "RESET);
-	else if (status == 0)
+	if (WIFEXITED(status))
 	{
 		printf("> %s", BLUE"[OK]  "RESET);
 		g_ok_count++;
 	}
+	else if (WTERMSIG(status) == SIGSEGV)
+		printf("> %s",  RED"[SEGV]"RESET);
+	else if (WTERMSIG(status) == SIGBUS)
+		printf("> %s",  RED"[BUSE]"RESET);
+	else
+		printf("> %s",  RED"[KO]  "RESET);
 }
 
 int		launch_tests(t_unit_test **lst)
@@ -104,7 +88,6 @@ int		launch_tests(t_unit_test **lst)
 		tmp = tmp->next;
 	}
 	ft_lstclear(lst);
-
 	printf("%d/%d tests checked\n", g_ok_count, g_count);
 	return (1);
 }
