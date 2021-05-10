@@ -28,6 +28,6 @@ int basic_test(void);
 int minus_test(void);
 int intmin_test(void);
 int intmax_test(void);
-
+int overint_test(void);
 
 #endif
