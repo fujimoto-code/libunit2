@@ -1,4 +1,6 @@
 #include "../includes/libunit.h"
+int g_ok_count;
+int g_count;
 
 void	ft_lstclear(t_unit_test **lst)
 {
@@ -15,7 +17,20 @@ void	ft_lstclear(t_unit_test **lst)
 	}
 }
 
-int g_ok_count;
+void	ft_lstadd_back(t_unit_test **lst, t_unit_test *newobj)
+{
+	t_unit_test *last;
+
+	if (!lst || !newobj)
+		return ;
+	if (*lst)
+	{
+		last = ft_lstlast(*lst);
+		last->next = newobj;
+	}
+	else
+		*lst = newobj;
+}
 
 void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 {
@@ -25,6 +40,7 @@ void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 	newlst = malloc(sizeof(t_unit_test));
 	if (!newlst)
 	{
+		// TODO freeの処理
 		printf("xmalloc: allocating error");
 		exit(-1);
 	}
@@ -36,7 +52,9 @@ void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 	{
 		tmp = *lst;
 		while (tmp->next)
+		{
 			tmp = tmp->next;
+		}
 		tmp->next = newlst;
 	}
 	else
@@ -45,6 +63,7 @@ void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 
 void	print_status(int status)
 {
+	// TODO MASKをかける
 	if (status == SIGSEGV)
 		printf("> %s",  RED"[SEGV]"RESET);
 	else if (status == SIGBUS)
@@ -58,16 +77,14 @@ void	print_status(int status)
 	}
 }
 
-int g_count;
-
 int		launch_tests(t_unit_test **lst)
 {
 	t_unit_test	*tmp;
 	pid_t		pid;
-	pid_t		wait_pid;
 	int			signal;
 
 	tmp = *lst;
+	// TODO リストがnullのとき、未初期化のとき
 	while (tmp)
 	{
 		g_count++;
@@ -77,16 +94,11 @@ int		launch_tests(t_unit_test **lst)
 			printf("fork error!\n");
 			break ;
 		}
-		else if (pid == 0)
+		if (pid == 0)
 		{
 			exit(tmp->f());
 		}
-		tmp = tmp->next;
-	}
-	tmp = *lst;
-	while (tmp)
-	{
-		wait_pid = wait(&signal);
+		wait(&signal);
 		print_status(signal);
 		printf(" : %s\n", tmp->message);
 		tmp = tmp->next;

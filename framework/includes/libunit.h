@@ -37,6 +37,7 @@ typedef struct			s_unit_test
 	int					(*f)(void);
 }						t_unit_test;
 
+// Prototypes
 int						launch_tests(t_unit_test **lst);
 void					load_test(t_unit_test **lst, char *msg, int (*f)(void));
 

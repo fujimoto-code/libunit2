@@ -1,9 +1,8 @@
-NAME	=	libunit.a
-SRCDIR	=	srcs
-SRCS	=	main.c ${wildcard strlen/*.c}
-OBJS	=	$(SRCS:.c=.o)
-CFLAGS	=	-Wall -Wextra -Werror
-CC		=	gcc $(CFLAGS)
+NAME	= libunit.a
+SRCDIR	= srcs
+SRCS	= main.c ${wildcard strlen/*.c}
+OBJS	= $(SRCS:.c=.o)
+CFLAGS	= -Wall -Wextra -Werror
 
 FRAMEWORK = ./../framework
 FRAMEWORKNAME = libunit.a
@@ -13,30 +12,27 @@ LIBFTNAME = libft.a
 
 all: $(NAME)
 
-%.o: %.c
-	$(CC) -c $^ -o $@
-
 $(NAME): $(OBJS)
 	${MAKE} -C ${FRAMEWORK}
 	${MAKE} -C ${LIBFT}
 	${CC} -o tests ${OBJS} ${LIBFT}/${LIBFTNAME} ${FRAMEWORK}/${FRAMEWORKNAME}
 
 clean:
-	${MAKE} clean ${FRAMEWORK}
-	${MAKE} clean ${LIBFT}
-	rm -f $(OBJS)
+	${MAKE} clean -C ${FRAMEWORK}
+	${MAKE} clean -C ${LIBFT}
+	$(RM) -f $(OBJS)
 
 fclean: clean
-	${MAKE} fclean ${FRAMEWORK}
-	${MAKE} fclean ${LIBFT}
-	rm -r $(NAME)
+	${MAKE} fclean -C ${FRAMEWORK}
+	${MAKE} fclean -C ${LIBFT}
+	$(RM) -r $(NAME)
 	$(RM) tests
 
 re: fclean all
 
 test: all
 	./tests
-	@$(RM) ./tests
+	$(RM) ./tests
 
 .PHONY: all clean fclean re srcs header test
 
