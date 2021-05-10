@@ -1,5 +1,12 @@
-#ifndef BASIC_TESTS_H
-#define BASIC_TESTS_H
+#ifndef LIBUNIT_H
+# define LIBUNIT_H
+
+# include <signal.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <unistd.h>
 
 #ifndef LOGGING_H
 #define LOGGING_H
@@ -23,9 +30,14 @@
 #define BOLDWHITE "\033[1m\033[37m"
 #endif
 
-int strlen_launcher(void);
-int basic_test(void);
-int null_test(void);
-int bigger_str_test(void);
+typedef struct			s_unit_test
+{
+	char				*message;
+	struct s_unit_test	*next;
+	int					(*f)(void);
+}						t_unit_test;
+
+int						launch_tests(t_unit_test **lst);
+void					load_test(t_unit_test **lst, char *msg, int (*f)(void));
 
 #endif
