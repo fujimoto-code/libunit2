@@ -1,7 +1,7 @@
 #include "../../libft/libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 #include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int	overint_test_atoi(void)
 {

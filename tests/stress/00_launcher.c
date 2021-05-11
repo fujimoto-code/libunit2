@@ -4,11 +4,13 @@
 int	stress_launcher(void)
 {
 	t_unit_test	*testlist;
+	size_t		i;
 
+	i = 0;
 	init_count();
 	testlist = NULL;
 	puts("STRESS :");
-	for (size_t i = 0; i < 3000; i++)
+	while (i++ < 3000)
 	{
 		load_test(&testlist, "Basic test", &basic_test_stress);
 	}
