@@ -3,7 +3,7 @@
 
 int	bigger_str_test_strlen(void)
 {
-	char	str_test[(size_t)INT32_MAX + 10];
+	char	str_test[2147483648 + 10];
 
 	ft_memset(str_test, 'a', INT32_MAX);
 	str_test[INT32_MAX] = 0;
