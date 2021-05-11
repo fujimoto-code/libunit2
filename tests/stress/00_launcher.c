@@ -7,7 +7,6 @@ int	stress_launcher(void)
 	size_t		i;
 
 	i = 0;
-	init_count();
 	testlist = NULL;
 	puts("STRESS :");
 	while (i++ < 3000)
