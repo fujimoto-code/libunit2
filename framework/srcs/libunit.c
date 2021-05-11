@@ -4,8 +4,13 @@ void	print_status(int status, t_unit_test *tmp, int *ok_count)
 {
 	if (WIFEXITED(status))
 	{
-		printf("> %s", BLUE "[OK]  " RESET);
-		(*ok_count)++;
+		if (!status)
+		{
+			printf("> %s", BLUE "[OK]  " RESET);
+			(*ok_count)++;
+		}
+		else
+			printf("> %s", RED "[KO]  " RESET);
 	}
 	else if (WTERMSIG(status) == SIGSEGV)
 		printf("> %s", RED "[SEGV]" RESET);
