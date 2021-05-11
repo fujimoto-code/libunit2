@@ -5,7 +5,6 @@ int	strlen_launcher(void)
 {
 	t_unit_test	*testlist;
 
-	init_count();
 	testlist = NULL;
 	puts("STRLEN :");
 	load_test(&testlist, "Basic test", &basic_test_strlen);
