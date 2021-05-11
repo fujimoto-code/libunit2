@@ -1,7 +1,7 @@
 #include "../includes/libunit.h"
 
-extern int g_ok_count;
-extern int g_count;
+extern int	g_ok_count;
+extern int	g_count;
 
 void	ft_lstclear(t_unit_test **lst)
 {
