@@ -1,5 +1,6 @@
-#include "atoi/basic_tests_atoi.h"
-#include "strlen/basic_tests_strlen.h"
+#include "./atoi/basic_tests_atoi.h"
+#include "./strlen/basic_tests_strlen.h"
+#include "./stress/basic_tests_stress.h"
 #include <stdio.h>
 
 int	main(void)

@@ -1,5 +1,5 @@
-#ifndef BASIC_TESTS_STRLEN_H
-# define BASIC_TESTS_STRLEN_H
+#ifndef BASIC_TESTS_STRESS_H
+# define BASIC_TESTS_STRESS_H
 
 # ifndef LOGGING_H
 #  define LOGGING_H
