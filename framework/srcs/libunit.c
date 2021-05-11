@@ -1,13 +1,11 @@
 #include "../includes/libunit.h"
-int		g_ok_count;
-int		g_count;
 
-static void	print_status(int status, t_unit_test *tmp)
+void	print_status(int status, t_unit_test *tmp, int *ok_count)
 {
 	if (WIFEXITED(status))
 	{
 		printf("> %s", BLUE "[OK]  " RESET);
-		g_ok_count++;
+		(*ok_count)++;
 	}
 	else if (WTERMSIG(status) == SIGSEGV)
 		printf("> %s", RED "[SEGV]" RESET);
@@ -21,30 +19,26 @@ static void	print_status(int status, t_unit_test *tmp)
 int	launch_tests(t_unit_test **lst)
 {
 	t_unit_test	*tmp;
-	pid_t		pid;
-	int			signal;
+	int			ok_count;
+	int			count;
 
+	ok_count = 0;
+	count = 0;
 	if (!lst || !*lst)
 		return (-1);
 	tmp = *lst;
 	while (tmp)
 	{
-		g_count++;
-		pid = fork();
-		if (pid == -1)
-		{
-			printf("fork error!\n");
+		count++;
+		if (!run_child_process(tmp, &ok_count))
 			break ;
-		}
-		if (pid == 0)
-			exit(tmp->f());
-		wait(&signal);
-		print_status(signal, tmp);
 		tmp = tmp->next;
 	}
-	printf("%d/%d tests checked\n", g_ok_count, g_count);
+	printf("%d/%d tests checked\n\n\n", ok_count, count);
 	ft_lstclear(lst);
-	return (1);
+	if (ok_count == count)
+		return (0);
+	return (-1);
 }
 
 void	load_test(t_unit_test **lst, char *msg, int (*f)(void))

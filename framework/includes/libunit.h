@@ -40,7 +40,8 @@ typedef struct s_unit_test
 // Prototypes
 void	ft_lstclear(t_unit_test **lst);
 void	load_test(t_unit_test **lst, char *msg, int (*f)(void));
-void	init_count(void);
 int		launch_tests(t_unit_test **lst);
+int		run_child_process(t_unit_test *lst, int *ok_count);
+void	print_status(int status, t_unit_test *tmp, int *ok_count);
 
 #endif
