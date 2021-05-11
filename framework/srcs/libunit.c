@@ -67,8 +67,9 @@ int		launch_tests(t_unit_test **lst)
 	pid_t		pid;
 	int			signal;
 
+	if (!lst || !*lst)
+		return (-1);
 	tmp = *lst;
-	// TODO リストがnullのとき、未初期化のとき
 	while (tmp)
 	{
 		g_count++;
