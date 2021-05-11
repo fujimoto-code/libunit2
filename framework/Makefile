@@ -1,6 +1,6 @@
 NAME	=	libunit.a
 SRCDIR	=	srcs
-SRCS	=	$(SRCDIR)/libunit.c
+SRCS	=	$(SRCDIR)/libunit.c $(SRCDIR)/utils.c
 OBJS	=	${SRCS:.c=.o}
 CFLAGS	=	-Wall -Wextra -Werror
 CC		=	gcc $(CFLAGS)
