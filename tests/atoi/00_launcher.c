@@ -5,7 +5,6 @@ int	atoi_launcher(void)
 {
 	t_unit_test	*testlist;
 
-	init_count();
 	testlist = NULL;
 	puts("ATOI :");
 	load_test(&testlist, "Basic test", &basic_test_atoi);
