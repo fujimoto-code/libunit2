@@ -11,6 +11,8 @@ int	strlen_launcher(void)
 	load_test(&testlist, "Basic test", &basic_test_strlen);
 	load_test(&testlist, "NULL test", &null_test_strlen);
 	load_test(&testlist, "Bigger string test", &bigger_str_test_strlen);
-	load_test(&testlist, "Bus test", &bus_test_strlen);
+	load_test(&testlist, "Non printable test", &nonprintable_test_strlen);
+	load_test(&testlist, "Mix test", &mix_test_strlen);
+	load_test(&testlist, "Empty test", &empty_test_strlen);
 	return (launch_tests(&testlist));
 }

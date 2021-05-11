@@ -1,12 +1,5 @@
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
-
-# include <signal.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <sys/wait.h>
-# include <unistd.h>
+#ifndef BASIC_TESTS_ATOI_H
+# define BASIC_TESTS_ATOI_H
 
 # ifndef LOGGING_H
 #  define LOGGING_H
@@ -30,17 +23,15 @@
 #  define BOLDWHITE "\033[1m\033[37m"
 # endif
 
-typedef struct s_unit_test
-{
-	char				*message;
-	struct s_unit_test	*next;
-	int					(*f)(void);
-}						t_unit_test;
-
-// Prototypes
-void	ft_lstclear(t_unit_test **lst);
-void	load_test(t_unit_test **lst, char *msg, int (*f)(void));
-void	init_count(void);
-int		launch_tests(t_unit_test **lst);
+int	atoi_launcher(void);
+int	basic_test_atoi(void);
+int	basic2_test_atoi(void);
+int	minus_test_atoi(void);
+int	intmin_test_atoi(void);
+int	intmax_test_atoi(void);
+int	overint_test_atoi(void);
+int	empty_test_atoi(void);
+int	zero_test_atoi(void);
+int	zero2_test_atoi(void);
 
 #endif
