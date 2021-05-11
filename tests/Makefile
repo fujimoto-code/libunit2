@@ -1,6 +1,6 @@
 NAME	= libunit.a
 SRCDIR	= srcs
-SRCS	= main.c ${wildcard ./strlen/*.c} ${wildcard ./atoi/*.c} ${wildcard ./stress/*.c}
+SRCS	= main.c ${wildcard ./strlen/*.c} ${wildcard ./atoi/*.c} ${wildcard ./stress/*.c} ${wildcard ./error/*.c}
 OBJS	= $(SRCS:.c=.o)
 CFLAGS	= -Wall -Wextra -Werror
 

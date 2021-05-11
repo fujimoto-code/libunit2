@@ -1,6 +1,7 @@
 #include "./atoi/basic_tests_atoi.h"
 #include "./strlen/basic_tests_strlen.h"
 #include "./stress/basic_tests_stress.h"
+#include "./error/basic_tests_error.h"
 #include <stdio.h>
 
 int	main(void)
@@ -12,4 +13,6 @@ int	main(void)
 	printf("\n\n");
 	atoi_launcher();
 	stress_launcher();
+	if (error_launcher())
+		printf("OK\n");
 }
