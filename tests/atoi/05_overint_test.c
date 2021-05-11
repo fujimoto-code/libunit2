@@ -1,14 +1,13 @@
-#include "basic_tests.h"
 #include "../../libft/libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
 
-int overint_test(void)
+int	overint_test_atoi(void)
 {
-	char *s;
+	char	s[64];
 
-	sprintf(s, "%s", LONG_MAX);
+	sprintf(s, "%lld", LLONG_MAX);
 	if (atoi(s) == ft_atoi(s))
 	{
 		return (0);

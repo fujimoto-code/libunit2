@@ -1,14 +1,13 @@
-#include "basic_tests.h"
 #include "../../libft/libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
 
-int intmax_test(void)
+int	intmax_test_atoi(void)
 {
-	char *s;
+	char	s[64];
 
-	sprintf(s, "%s",INT_MAX);
+	sprintf(s, "%d", INT_MAX);
 	if (atoi(s) == ft_atoi(s))
 	{
 		return (0);

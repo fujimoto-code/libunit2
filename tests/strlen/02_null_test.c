@@ -1,7 +1,7 @@
 #include "../../libft/libft.h"
 #include <string.h>
 
-int	null_test(void)
+int	null_test_strlen(void)
 {
 	if (ft_strlen(NULL) == strlen(NULL))
 		return (0);
