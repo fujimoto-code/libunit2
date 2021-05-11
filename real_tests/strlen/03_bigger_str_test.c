@@ -3,14 +3,11 @@
 
 int	bigger_str_test_strlen(void)
 {
-	char	s[256];
-	int		i;
+	char	str_test[(size_t)INT32_MAX + 10];
 
-	i = -1;
-	while (++i != 255)
-		s[i] = 'a';
-	s[i] = '\0';
-	if (ft_strlen(s) == strlen(s))
+	ft_memset(str_test, 'a', INT32_MAX);
+	str_test[INT32_MAX] = 0;
+	if (ft_strlen(str_test) == strlen(str_test))
 		return (0);
 	else
 		return (-1);
