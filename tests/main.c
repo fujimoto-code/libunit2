@@ -10,4 +10,5 @@ int	main(void)
 	strlen_launcher();
 	printf("\n\n");
 	atoi_launcher();
+	stress_launcher();
 }
