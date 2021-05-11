@@ -25,7 +25,7 @@ void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 	newlst = malloc(sizeof(t_unit_test));
 	if (!newlst)
 	{
-		// TODO freeの処理
+		ft_lstclear(lst);
 		printf("xmalloc: allocating error");
 		exit(-1);
 	}
