@@ -13,6 +13,8 @@ int	main(void)
 	printf("\n\n");
 	atoi_launcher();
 	stress_launcher();
-	if (error_launcher())
-		printf("OK\n");
+	if (!error_launcher())
+		printf("Error test OK\n");
+	else
+		printf("Error test KO\n");
 }
