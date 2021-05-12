@@ -49,7 +49,6 @@ int	launch_tests(t_unit_test **lst)
 void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 {
 	t_unit_test	*newlst;
-	t_unit_test	*tmp;
 
 	newlst = malloc(sizeof(t_unit_test));
 	if (!newlst)
@@ -61,13 +60,5 @@ void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 	newlst->f = f;
 	newlst->message = msg;
 	newlst->next = NULL;
-	if (*lst)
-	{
-		tmp = *lst;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = newlst;
-	}
-	else
-		*lst = newlst;
+	ft_lstadd_front(lst, newlst);
 }
