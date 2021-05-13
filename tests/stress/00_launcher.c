@@ -9,7 +9,7 @@ int	stress_launcher(void)
 	i = 0;
 	testlist = NULL;
 	puts("STRESS :");
-	while (i++ < 3000)
+	while (i++ < 3)
 	{
 		load_test(&testlist, "Basic test", &basic_test_stress);
 	}
