@@ -12,3 +12,5 @@ $ git push origin feature-readme
 
 OKだったら、マージし、github上のBranchを消去する。
 ローカルでも、使用が終わったBranchに関しては消去する。
+
+[![CI](https://github.com/fujimoto-code/libunit2/actions/workflows/norm.yml/badge.svg)](https://github.com/fujimoto-code/libunit2/actions/workflows/norm.yml)
