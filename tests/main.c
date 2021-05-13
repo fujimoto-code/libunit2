@@ -12,8 +12,5 @@ int	main(void)
 	strlen_launcher();
 	atoi_launcher();
 	stress_launcher();
-	if (!error_launcher())
-		printf("Error test OK\n");
-	else
-		printf("Error test KO\n");
+	error_launcher();
 }

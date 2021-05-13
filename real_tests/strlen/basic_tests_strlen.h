@@ -25,7 +25,7 @@
 
 int	strlen_launcher(void);
 int	basic_test_strlen(void);
-int	null_test_strlen(void);
+int	basic2_test_strlen(void);
 int	bigger_str_test_strlen(void);
 int	nonprintable_test_strlen(void);
 int	mix_test_strlen(void);

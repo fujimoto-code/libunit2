@@ -23,7 +23,24 @@
 #  define BOLDWHITE "\033[1m\033[37m"
 # endif
 
-int	error_test(void);
+# include "../../framework/includes/libunit.h"
+# include <string.h>
+# include <fcntl.h>
+
 int	error_launcher(void);
+int	error_test_constructor(void);
+int	error_test_destructor(int backup);
+int	error_test(void);
+int	null_test00(void);
+int	null_test01(void);
+int	null_test02(void);
+int	null_test03(void);
+int	null_test04(void);
+int	null_test05(void);
+int	null_test06(void);
+int	null_test07(void);
+int	null_test08(void);
+int	null_test09(void);
+int	null_test10(void);
 
 #endif
