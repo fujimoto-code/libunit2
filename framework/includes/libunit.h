@@ -38,7 +38,7 @@ typedef struct s_unit_test
 }						t_unit_test;
 
 void	ft_lstclear(t_unit_test **lst);
-void	ft_lstadd_front(t_unit_test **lst, t_unit_test *new);
+void	ft_lstadd_back(t_unit_test **lst, t_unit_test *new);
 void	load_test(t_unit_test **lst, char *msg, int (*f)(void));
 int		launch_tests(t_unit_test **lst);
 void	run_child_process(t_unit_test *lst, int *ok_count);

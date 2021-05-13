@@ -71,5 +71,5 @@ void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 	newlst->f = f;
 	newlst->message = msg;
 	newlst->next = NULL;
-	ft_lstadd_front(lst, newlst);
+	ft_lstadd_back(lst, newlst);
 }
