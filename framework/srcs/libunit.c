@@ -30,7 +30,10 @@ int	launch_tests(t_unit_test **lst)
 	ok_count = 0;
 	count = 0;
 	if (!lst || !*lst)
-		return (-1);
+	{
+		printf("Invalid argument.\n");
+		exit(1);
+	}
 	tmp = *lst;
 	while (tmp)
 	{
@@ -55,7 +58,12 @@ void	load_test(t_unit_test **lst, char *msg, int (*f)(void))
 	{
 		ft_lstclear(lst);
 		printf("xmalloc: allocating error");
-		exit(-1);
+		exit(1);
+	}
+	if (!lst || !msg || !f)
+	{
+		printf("Invalid argument.\n");
+		exit(1);
 	}
 	newlst->f = f;
 	newlst->message = msg;
