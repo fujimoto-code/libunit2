@@ -34,3 +34,9 @@ int	run_child_process(t_unit_test *lst, int *ok_count)
 	print_status(signal, lst, ok_count);
 	return (1);
 }
+
+void	ft_lstadd_front(t_unit_test **lst, t_unit_test *new)
+{
+	new->next = (*lst);
+	(*lst) = new;
+}
