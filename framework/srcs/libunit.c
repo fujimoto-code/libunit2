@@ -17,7 +17,11 @@ void	print_status(int status, t_unit_test *tmp, int *ok_count)
 	else if (WTERMSIG(status) == SIGBUS)
 		printf("> %s", RED "[BUSE]" RESET);
 	else
-		printf("> %s", RED "[KO]  " RESET);
+	{
+		printf("> %s", RED "[fatal]  " RESET);
+		printf(" : %s\n", tmp->message);
+		exit(1);
+	}
 	printf(" : %s\n", tmp->message);
 }
 
