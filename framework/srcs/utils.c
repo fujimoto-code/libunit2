@@ -35,16 +35,16 @@ void	run_child_process(t_unit_test *lst, int *ok_count)
 
 void	ft_lstadd_back(t_unit_test **lst, t_unit_test *new)
 {
-		t_unit_test	*tmp;
+	t_unit_test	*tmp;
 
-		if (*lst == NULL)
-		{
-				(*lst) = new;
-				return ;
-		}
-		tmp = *lst;
-		while ((*lst)->next)
-			(*lst) = (*lst)->next;
-		(*lst)->next = new;
-		*lst = tmp;
+	if (*lst == NULL)
+	{
+		(*lst) = new;
+		return ;
+	}
+	tmp = *lst;
+	while ((*lst)->next)
+		(*lst) = (*lst)->next;
+	(*lst)->next = new;
+	*lst = tmp;
 }
