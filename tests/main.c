@@ -10,7 +10,6 @@ int	main(void)
 	printf("**      42 - Unit Tests      ****\n");
 	printf("*********************************\n"RESET);
 	strlen_launcher();
-	printf("\n\n");
 	atoi_launcher();
 	stress_launcher();
 	if (!error_launcher())
