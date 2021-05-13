@@ -15,24 +15,22 @@ void	ft_lstclear(t_unit_test **lst)
 	}
 }
 
-int	run_child_process(t_unit_test *lst, int *ok_count)
+void	run_child_process(t_unit_test *lst, int *ok_count)
 {
 	pid_t	pid;
 	int		signal;
 
-	if (!(lst->f))
-		return (0);
 	pid = fork();
 	if (pid == -1)
 	{
 		printf("fork error!\n");
-		return (0);
+		return ;
 	}
 	if (pid == 0)
 		exit(lst->f());
 	wait(&signal);
 	print_status(signal, lst, ok_count);
-	return (1);
+	return ;
 }
 
 void	ft_lstadd_front(t_unit_test **lst, t_unit_test *new)
