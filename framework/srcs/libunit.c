@@ -2,6 +2,7 @@
 
 void	print_status(int status, t_unit_test *tmp, int *ok_count)
 {
+	printf("\t");
 	if (WIFEXITED(status))
 	{
 		if (!status)
@@ -45,7 +46,7 @@ int	launch_tests(t_unit_test **lst)
 		run_child_process(tmp, &ok_count);
 		tmp = tmp->next;
 	}
-	printf("%d/%d tests checked\n\n\n", ok_count, count);
+	printf("\t%d/%d tests checked\n\n\n", ok_count, count);
 	ft_lstclear(lst);
 	if (ok_count == count)
 		return (0);
