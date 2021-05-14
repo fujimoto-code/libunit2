@@ -3,8 +3,9 @@
 
 int	basic2_test_strlen(void)
 {
-	char *s = "1234567()*!!!######";
+	char	*s;
 
+	s = "1234567()*!!!######";
 	if (ft_strlen(s) == strlen(s))
 		return (0);
 	else
