@@ -19,7 +19,7 @@ NAME = libft.a
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAG) -c $< 
+	$(CC) $(CFLAG) -c $<
 
 $(NAME): $(SRCS)
 	ar cr $@ $^
@@ -27,10 +27,10 @@ $(NAME): $(SRCS)
 bonus: $(SRCS) $(BONUS)
 	ar cr $(NAME) $^
 
-clean: 
-	rm -f $(SRCS) $(BONUS)
+clean:
+	$(RM) -f $(SRCS) $(BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) -f $(NAME)
 
 re: fclean all

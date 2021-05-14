@@ -3,7 +3,7 @@ SRCDIR	=	srcs
 SRCS	=	$(SRCDIR)/libunit.c $(SRCDIR)/utils.c
 OBJS	=	${SRCS:.c=.o}
 CFLAGS	=	-Wall -Wextra -Werror
-CC		=	gcc $(CFLAGS)
+CC		=	gcc
 
 all: $(NAME)
 
@@ -11,9 +11,9 @@ $(NAME): $(OBJS)
 	ar -src $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+	$(RM) -f $(OBJS)
 
 fclean: clean
-	rm -r $(NAME)
+	$(RM) -r $(NAME)
 
 re: fclean all
