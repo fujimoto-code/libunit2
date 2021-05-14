@@ -5,7 +5,7 @@ int	error_launcher(void)
 	t_unit_test	*testlist;
 
 	testlist = NULL;
-	puts("ERROR :\n");
+	puts("ERROR :");
 	load_test(&testlist, "null test 01", &null_test01);
 	load_test(&testlist, "null test 02", &null_test02);
 	load_test(&testlist, "null test 03", &null_test03);
