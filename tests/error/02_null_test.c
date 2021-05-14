@@ -2,9 +2,9 @@
 
 int	null_test02(void)
 {
-	t_unit_test *testlist;
-	int backup;
-	int pid;
+	t_unit_test	*testlist;
+	int			backup;
+	int			pid;
 
 	testlist = NULL;
 	backup = error_test_constructor();
