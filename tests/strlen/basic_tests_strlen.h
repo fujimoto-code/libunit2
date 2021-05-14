@@ -27,6 +27,6 @@ int	strlen_launcher(void);
 int	basic_test_strlen(void);
 int	segv_test_strlen(void);
 int	bus_test_strlen(void);
-int ko_test_strlen(void);
+int	ko_test_strlen(void);
 
 #endif

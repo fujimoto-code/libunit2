@@ -1,8 +1,9 @@
 NAME	= libunit.a
 SRCDIR	= srcs
 SRCS	= main.c ${wildcard ./strlen/*.c} ${wildcard ./atoi/*.c} ${wildcard ./stress/*.c}
-OBJS	= $(SRCS:.c=.o)
+OBJS	= ${SRCS:.c=.o}
 CFLAGS	= -Wall -Wextra -Werror
+CC		= gcc
 
 FRAMEWORK = ./../framework
 FRAMEWORKNAME = libunit.a

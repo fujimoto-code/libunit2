@@ -2,10 +2,10 @@
 
 int	error_launcher(void)
 {
-	t_unit_test *testlist;
+	t_unit_test	*testlist;
+
 	testlist = NULL;
-	puts("ERROR :\n");
-	load_test(&testlist, "null test 00", &null_test00);
+	puts("ERROR :");
 	load_test(&testlist, "null test 01", &null_test01);
 	load_test(&testlist, "null test 02", &null_test02);
 	load_test(&testlist, "null test 03", &null_test03);
@@ -16,6 +16,6 @@ int	error_launcher(void)
 	load_test(&testlist, "null test 08", &null_test08);
 	load_test(&testlist, "null test 09", &null_test09);
 	load_test(&testlist, "null test 10", &null_test10);
-
+	load_test(&testlist, "null test 11", &null_test11);
 	return (launch_tests(&testlist));
 }
